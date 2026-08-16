@@ -21,9 +21,8 @@ try:
     # 2. Mit Google Sheets verbinden
     client = gspread.authorize(creds)
     
-    # 3. Genau deine Datei öffnen
-    # WICHTIG: Der Name hier muss exakt so sein, wie deine Google Sheet Datei heißt!
-    sheet = client.open("Backend_Zeiterfassung_KundeA")
+    # 3. Genau deine Datei öffnen über die feste URL
+    sheet = client.open_by_url("https://docs.google.com/spreadsheets/d/1siXS3m36SuPVi1bRHXMDA2Oun6jMeNFmIy3FvzHXQ1o/edit?pli=1&gid=0#gid=0")
     
     # 4. Das Tabellenblatt "Stammdaten" auslesen
     stammdaten = sheet.worksheet("Stammdaten").get_all_records()
